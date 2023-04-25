@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "esbuild": "^0.17.18",
+    "mri": "^1.2.0"
+  }
+}

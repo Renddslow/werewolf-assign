@@ -1,6 +1,9 @@
+import css from '../css';
+
 type CardData = {
   title: string;
   description: string;
+  definitions: Record<string, string>;
   category: 'information' | 'attack' | 'defend' | 'special' | 'recruit' | 'townsfolk';
   alignment: 'villain' | 'cult' | 'town';
   informationGiven: 'game_start' | 'dependent' | 'nightly' | 'never';
@@ -9,12 +12,13 @@ type CardData = {
   tips: string[];
 };
 
-const css = (...a) => a.join('');
-
 const matchBold = /\*\*(.*?)\*\*/g;
-const parseMarkdown = (text: string) => {
+const matchDfn = /\[\[(.*?)]]/g;
+const parseMarkdown = (text: string, definitions: Record<string, string>) => {
   if (!text) return '';
-  return text.replace(matchBold, '<strong>$1</strong>');
+  return text
+    .replace(matchBold, '<strong>$1</strong>')
+    .replace(matchDfn, (_, term) => `<dfn data-def="${definitions[term]}">${term}</dfn>`);
 };
 
 const styles = css`
@@ -24,11 +28,15 @@ const styles = css`
     margin: 0;
   }
 
+  :host {
+    --color-border: #2f2f2f;
+  }
+
   .card {
     display: grid;
     grid-template-columns: minmax(0, 360px) minmax(0, 300px);
     width: max-content;
-    border: 1px solid #1d1d1d;
+    border: 1px solid var(--color-border);
     margin: 0 auto;
   }
 
@@ -41,7 +49,7 @@ const styles = css`
 
   #card-content {
     padding: 12px 24px;
-    border-left: 1px solid #1d1d1d;
+    border-left: 1px solid var(--color-border);
   }
 
   h2 {
@@ -77,7 +85,8 @@ const styles = css`
   .information,
   .rules,
   .rules-list,
-  .tips {
+  .tips,
+  .tips-list {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     grid-gap: 12px;
@@ -86,13 +95,35 @@ const styles = css`
   .rules {
     margin: 12px -24px;
     padding: 12px 24px;
-    border-top: 1px solid #1d1d1d;
+    border-top: 1px solid var(--color-border);
   }
 
-  strong {
+  dfn {
     color: #bd0a0a;
+    font-weight: 600;
+    font-style: normal;
     text-decoration: dotted underline;
     cursor: help;
+    position: relative;
+  }
+
+  dfn::before {
+    content: attr(data-def);
+    display: none;
+    position: absolute;
+    opacity: 0;
+    background: #000;
+    color: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    font-weight: 500;
+    padding: 12px;
+    width: 200px;
+  }
+
+  dfn:hover::before {
+    opacity: 1;
+    display: block;
   }
 
   .row {
@@ -112,6 +143,16 @@ const styles = css`
 
   .tag.villain {
     background: #bd0a0a;
+  }
+
+  .tips {
+    grid-column: 1 / 3;
+    border-top: 1px solid var(--color-border);
+    padding: 24px;
+  }
+
+  ol {
+    padding-left: 12px;
   }
 `;
 
@@ -142,6 +183,10 @@ class RoleCard extends HTMLElement {
                 <h3>Rules</h3>
                 <ul class="rules-list"></ul>
             </div>
+        </div>
+        <div class="tips">
+            <h3>Tips</h3>
+            <ol class="tips-list"></ol>
         </div>
       </div>
     `;
@@ -177,8 +222,14 @@ class RoleCard extends HTMLElement {
     const rulesList = this.shadow.querySelector('.rules-list') as HTMLUListElement;
     data.rules.forEach((rule) => {
       const li = document.createElement('li');
-      li.innerHTML = parseMarkdown(rule);
+      li.innerHTML = parseMarkdown(rule, data.definitions);
       rulesList.appendChild(li);
+    });
+    const tipsList = this.shadow.querySelector('.tips-list') as HTMLUListElement;
+    data.tips.forEach((tip) => {
+      const li = document.createElement('li');
+      li.innerHTML = parseMarkdown(tip, data.definitions);
+      tipsList.appendChild(li);
     });
   }
 }

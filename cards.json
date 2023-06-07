@@ -8,12 +8,14 @@
     "informationGiven": "nightly",
     "imageSrc": "/cards/01_seer.png",
     "rules": [
-      "During each **nighttime phase**, you will be asked to choose a player in Slack and send it to the Werewolf team.",
+      "During each [[nighttime phase]], you will be asked to choose a player in Slack and send it to the storyteller team.",
       "You will be told if that player is a Townsfolk, a Vampire, or a Werewolf.",
       "If that player is a Cultist, they will read as a Townsfolk."
     ],
     "tips": [
-      "Find the Apprentice Seer and share information with them as soon as you can—just in case."
+      "Find the Apprentice Seer and share information with them as soon as you can—just in case.",
+      "Be careful about who you share information with, you are a vital part of information gathering for your team.",
+      "Make sure you aren't [[cursed]]; if you are, find someone who can break it for you."
     ]
   },
   {
@@ -26,8 +28,30 @@
     "imageSrc": "/cards/02_apprentice_seer.png",
     "rules": [
       "You will receive **no** information until the Seer dies.",
-      "The Seer rules are below."
+      "The Seer rules are below:",
+      "During each [[nighttime phase]], you will be asked to choose a player in Slack and send it to the storyteller team.",
+      "You will be told if that player is a Townsfolk, a Vampire, or a Werewolf.",
+      "If that player is a Cultist, they will read as a Townsfolk."
     ],
     "tips": ["Find the Seer and share information with them as soon as you can—just in case."]
+  },
+  {
+    "id": 3,
+    "title": "Priest",
+    "description": "Each night you may choose someone to protect from vampires or recruitment.",
+    "category": "protection",
+    "alignment": "town",
+    "informationGiven": "never",
+    "imageSrc": "/cards/03_priest.png",
+    "rules": [
+      "During each [[nighttime phase]], you will be asked to choose a player in Slack and send it to the storyteller team.",
+      "That player will be protected from being recruited by the cult or turned into a Vampire that night.",
+      "You may protect yourself.",
+      "If you are [[cursed]], your protection may fail **or** it may bounce to another player you didn't intend."
+    ],
+    "tips": [
+      "Find the silversmith and coordinate your protection.",
+      "Your role is vital to the success of the Town, but doesn't yield as much information as you might think. Be careful who you reveal yourself to."
+    ]
   }
 ]

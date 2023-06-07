@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "title": "Seer",
+    "description": "Each night, choose a player and learn if they are a Townsfolk, a Vampire, or a Werewolf.",
+    "category": "information",
+    "alignment": "town",
+    "informationGiven": "nightly",
+    "imageSrc": "/cards/01_seer.png",
+    "rules": [
+      "During each **nighttime phase**, you will be asked to choose a player in Slack and send it to the Werewolf team.",
+      "You will be told if that player is a Townsfolk, a Vampire, or a Werewolf.",
+      "If that player is a Cultist, they will read as a Townsfolk."
+    ],
+    "tips": [
+      "Find the Apprentice Seer and share information with them as soon as you can—just in case."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Apprentice Seer",
+    "description": "You become Seer when the Seer dies.",
+    "category": "information",
+    "alignment": "town",
+    "informationGiven": "nightly",
+    "imageSrc": "/cards/02_apprentice_seer.png",
+    "rules": [
+      "You will receive **no** information until the Seer dies.",
+      "The Seer rules are below."
+    ],
+    "tips": ["Find the Seer and share information with them as soon as you can—just in case."]
+  }
+]

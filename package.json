@@ -17,6 +17,7 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "klona": "^2.0.6",
     "polka": "^0.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

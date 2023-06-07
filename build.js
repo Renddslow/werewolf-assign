@@ -1,17 +1,22 @@
-import mri from 'mri';
 import { build } from 'esbuild';
 
-const prog = mri(process.argv.slice(2), {
-  boolean: ['watch', 'minify'],
-});
-
-build({
-  entryPoints: ['src/index.tsx'],
-  bundle: true,
-  platform: 'browser',
-  outfile: 'main.js',
-  minify: prog.minify,
-  jsxFactory: 'React',
-  jsxFragment: 'Fragment',
-  watch: prog.watch,
-});
+Promise.all([
+  build({
+    entryPoints: ['src/admin/index.ts'],
+    bundle: true,
+    platform: 'browser',
+    outfile: 'public/admin.js',
+    minify: true,
+    jsxFactory: 'React',
+    jsxFragment: 'Fragment',
+  }),
+  build({
+    entryPoints: ['src/client/index.ts'],
+    bundle: true,
+    platform: 'browser',
+    outfile: 'public/client.js',
+    minify: true,
+    jsxFactory: 'React',
+    jsxFragment: 'Fragment',
+  }),
+]);

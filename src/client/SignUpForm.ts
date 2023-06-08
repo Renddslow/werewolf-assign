@@ -146,7 +146,15 @@ class SignUpForm extends HTMLElement {
       const formData = new FormData(form);
       const name = formData.get('full-name');
       const email = formData.get('email');
-      console.log({ name, email });
+
+      const res = await fetch('/.netlify/functions/user', {
+        method: 'POST',
+        body: JSON.stringify({ name, email }),
+      }).then((d) => d.json());
+      if (res && res.token) {
+        window.localStorage.setItem('werewolf:user', res.token);
+        window.location.reload();
+      }
     });
   }
 }

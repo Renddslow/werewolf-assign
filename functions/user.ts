@@ -1,5 +1,5 @@
 import { Handler, HandlerEvent } from '@netlify/functions';
-
+import jwt from 'jsonwebtoken';
 const Knex = require('knex');
 const knexServerlessMysql = require('knex-serverless-mysql');
 
@@ -17,15 +17,39 @@ const knex = Knex({
   mysql,
 });
 
+type User = {
+  id: number;
+  name: string;
+  email: string;
+};
+
+const createResponse = (payload: User) => {
+  const token = jwt.sign(
+    { name: payload.name, id: payload.id, email: payload.email },
+    process.env.JWT_SECRET,
+  );
+  return {
+    statusCode: 200,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ token }),
+  };
+};
+
 const handler: Handler = async (event: HandlerEvent) => {
   const { name, email } = JSON.parse(event.body);
 
-  await knex('users').insert({ name, email });
-  const user = await knex('users').where({ email }).first();
+  const existingUser: User = await knex('users').where({ email, name }).first();
 
-  return {
-    statusCode: 200,
-  };
+  if (existingUser) {
+    return createResponse(existingUser);
+  }
+
+  await knex('users').insert({ name, email });
+  const user: User = await knex('users').where({ email }).first();
+
+  return createResponse(user);
 };
 
 export { handler };

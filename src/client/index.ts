@@ -14,10 +14,10 @@ import SignUpForm from './SignUpForm';
 
   const userHash = window.localStorage.getItem('werewolf:user');
   if (!userHash) {
-    // setTimeout(() => {
-    //   const signUpForm = document.createElement('sign-up-form');
-    //   document.querySelector('#wrapper').appendChild(signUpForm);
-    // }, 5 * 1000);
+    setTimeout(() => {
+      const signUpForm = document.createElement('sign-up-form');
+      document.querySelector('#wrapper').appendChild(signUpForm);
+    }, 5 * 1000);
   } else {
     // Render admin page
   }

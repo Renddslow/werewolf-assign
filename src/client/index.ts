@@ -12,9 +12,21 @@ const main = async () => {
     },
   }).then((d) => d.json());
 
+  if (role.role === null) {
+    window.localStorage.removeItem('werewolf:role');
+    const existingCard = document.querySelector('role-card');
+    if (existingCard) {
+      existingCard.remove();
+    }
+    window.location.reload();
+  }
+
   const currentRole = window.localStorage.getItem('werewolf:role');
 
-  if ((!currentRole && role.role) || role.role !== parseInt(currentRole, 10)) {
+  if (
+    (role.role !== null && !currentRole && role.role) ||
+    (role.role !== null && role.role !== parseInt(currentRole, 10))
+  ) {
     window.localStorage.setItem('werewolf:role', role.role);
     const existingCard = document.querySelector('role-card');
     if (existingCard) {
@@ -25,7 +37,7 @@ const main = async () => {
     document.querySelector('#wrapper').appendChild(roleCard);
   }
 
-  setTimeout(main, 30 * 1000);
+  setTimeout(main, 10 * 1000);
 };
 
 (async () => {

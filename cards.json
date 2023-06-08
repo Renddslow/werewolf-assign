@@ -202,7 +202,7 @@
     "category": "information",
     "alignment": "town",
     "informationGiven": "dependent",
-    "imageSrc": "/cards/12_town_crier.png",
+    "imageSrc": "/cards/12_towncrier.png",
     "rules": [
       "Each night following a nomination, you will be told in Slack whether a villain was nominated.",
       "If there was more that one villain nominated, you will only be told that a villain was nominated.",
@@ -276,15 +276,19 @@
   },
   {
     "id": 17,
-    "title": "Census Taker",
-    "description": "Each night, choose a role, find out how many players have that role.",
+    "title": "Census Worker",
+    "description": "Each night, choose a role, find out how many living players started the game with that role.",
     "category": "information",
     "alignment": "town",
     "informationGiven": "nightly",
-    "imageSrc": "/cards/17_census_taker.png",
+    "imageSrc": "/cards/17_census_worker.png",
     "rules": [
       "Each night, you will be asked to choose a role in Slack and send it to the storyteller team.",
-      "You will receive a number in Slack about how many players have that role.",
+      "You will receive a number in Slack about how many players started the game with that role.",
+      "If the [[Seer]] had died, leaving the [[Apprentice Seer]] to take their place, you would be told that there was only one Seer.",
+      "If any player joins a cult, you will be given the count based on their old role.",
+      "If a player has died, they will not be counted.",
+      "If a [[cursed]] player has become the [[Werewolf]], both the Werewolf and the original player role will be counted.",
       "You will not be told any player names."
     ],
     "tips": ["You have a great deal of affinity with the [[Constable]]."]

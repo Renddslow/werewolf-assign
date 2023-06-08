@@ -19,7 +19,7 @@
   "curse breaker": "Each night you may choose someone, if they are cursed, the curse is broken and bounces to another player. If you successfully break a curse, there are no deaths that night.",
   "anointed": "You are a disguised elder god with no powers. Do not let the cult find you. You may randomly receive clairvoyant information which is always true.",
   "constable": "Each night, pick a role, find out how many people with that role are in the cult.",
-  "census taker": "Each night, choose a role, find out how many players have that role.",
+  "census worker": "Each night, choose a role, find out how many living players started the game with that role.",
   "incantation": "All hail Cthulhu!",
   "cult": "A group of former townsfolk and the Cultist trying to awaken an elder god by identifying and executing the Anointed.",
   "vampire": "Attack another player each night. That player dies if there is a nomination the next day. The Vampires know each other.",

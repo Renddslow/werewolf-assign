@@ -40,7 +40,7 @@ const styles = css`
     grid-template-columns: minmax(0, 360px) minmax(0, 300px);
     width: max-content;
     border: 1px solid var(--color-border);
-    margin: 0 auto;
+    margin: 75px auto 0;
   }
 
   .image {

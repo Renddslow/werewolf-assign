@@ -4,13 +4,3 @@ command="yarn build"
 
 [functions]
 directory="functions/"
-
-[[redirects]]
-from="/api/assign"
-to="/.netlify/functions/assign"
-status=200
-
-[[redirects]]
-from="/api/assignments"
-to="/.netlify/functions/assignments"
-status=200

@@ -11,6 +11,8 @@ const stateRow = (id: number) => `
     </div>
 `;
 
+// TODO!!! ASSIGNMENTS
+
 const listener = (token: string) => async (e: Event) => {
   const target = e.target as HTMLInputElement;
 

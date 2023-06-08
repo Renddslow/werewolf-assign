@@ -4,7 +4,7 @@ import cards from '../cards.json';
 import definitions from '../definitions.json';
 
 const handler: Handler = async (event: HandlerEvent) => {
-  const card = klona(cards).find(
+  const { assignmentRules, ...card } = klona(cards).find(
     (card) => card.id === parseInt(event.queryStringParameters.role, 10),
   );
   if (card.category === 'information') {

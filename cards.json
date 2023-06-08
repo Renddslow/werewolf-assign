@@ -17,7 +17,11 @@
       "Find the Apprentice Seer and share information with them as soon as you can—just in case.",
       "Be careful about who you share information with, you are a vital part of information gathering for your team.",
       "Make sure you aren't [[cursed]]; if you are, find someone who can break it for you."
-    ]
+    ],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 2,
@@ -35,7 +39,11 @@
       "You will be told if that player is a Townsfolk, a Vampire, or a Werewolf.",
       "If that player is a Cultist, they will read as a Townsfolk."
     ],
-    "tips": ["Find the Seer and share information with them as soon as you can—just in case."]
+    "tips": ["Find the Seer and share information with them as soon as you can—just in case."],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 3,
@@ -55,7 +63,11 @@
     "tips": [
       "Find the silversmith and coordinate your protection.",
       "Your role is vital to the success of the Town, but doesn't yield as much information as you might think. Be careful who you reveal yourself to."
-    ]
+    ],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 4,
@@ -76,7 +88,11 @@
       "Find the priest and coordinate your protection.",
       "Werewolves must attack every night. A failed attack reveals key information.",
       "Your role is vital to the success of the Town. Be careful who you reveal yourself to."
-    ]
+    ],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 5,
@@ -96,7 +112,11 @@
     "tips": [
       "You offer the most to the Town if you can guess right on the Werewolf when you inevitably die. Spend your energy sleuthing.",
       "Don't die too early."
-    ]
+    ],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 6,
@@ -113,7 +133,11 @@
     ],
     "tips": [
       "The least valuable thing you can do in this role is lie about the information you are given."
-    ]
+    ],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 7,
@@ -129,7 +153,13 @@
       "You do not get to pick the players.",
       "If one of those players dies, you will be told in Slack the role of the other player."
     ],
-    "tips": ["You have a great deal of affinity with the [[Investigator]] and the [[Washerwoman]]."]
+    "tips": [
+      "You have a great deal of affinity with the [[Investigator]] and the [[Washerwoman]]."
+    ],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 8,
@@ -151,7 +181,11 @@
       "Work with the [[Priest]] and the [[Silversmith]] to protect yourself and the Anointed from recruitment.",
       "Work with the [[Curse Breaker]] to remove curses from other players.",
       "The Cult can't win if the Anointed is dead."
-    ]
+    ],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 9,
@@ -168,7 +202,11 @@
     "tips": [
       "Treat the Masons like a secret society. Don't reveal your membership to anyone else.",
       "Mason is the easiest role to validate if you've been cursed or not."
-    ]
+    ],
+    "assignmentRules": {
+      "min": 2,
+      "max": 4
+    }
   },
   {
     "id": 10,
@@ -186,7 +224,11 @@
     "tips": [
       "You have a great deal of affinity with the [[Empath]] and the [[Washerwoman]].",
       "Keep your story straight."
-    ]
+    ],
+    "assignmentRules": {
+      "min": 1,
+      "max": 2
+    }
   },
   {
     "id": 11,
@@ -204,7 +246,11 @@
     "tips": [
       "You have a great deal of affinity with the [[Empath]] and the [[Investigator]].",
       "Keep your story straight."
-    ]
+    ],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 12,
@@ -220,7 +266,11 @@
       "If there was more that one villain nominated, you will only be told that a villain was nominated.",
       "You will not be told who the villain was."
     ],
-    "tips": ["You have a great deal of affinity with the [[Nightwatch]]."]
+    "tips": ["You have a great deal of affinity with the [[Nightwatch]]."],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 13,
@@ -236,7 +286,11 @@
       "If there is only one nominated player, you will not be told their role.",
       "You do not get to pick the player."
     ],
-    "tips": ["You have a great deal of affinity with the [[Town Crier]]."]
+    "tips": ["You have a great deal of affinity with the [[Town Crier]]."],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 14,
@@ -253,7 +307,11 @@
       "If you successfully break a curse, there are no deaths that night.",
       "If you choose someone who is not cursed, nothing happens."
     ],
-    "tips": ["Work with the [[Arcanist]] to break curses and protect the [[Anointed]]."]
+    "tips": ["Work with the [[Arcanist]] to break curses and protect the [[Anointed]]."],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 15,
@@ -275,7 +333,11 @@
     "tips": [
       "Don't let the [[Arcanist]] discover you.",
       "Getting recruited isn't a bad option for you."
-    ]
+    ],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 16,
@@ -291,7 +353,11 @@
       "You will receive a number in Slack about how many players with that role are in the cult.",
       "You will not be told any player names."
     ],
-    "tips": ["You have a great deal of affinity with the [[Census Taker]]."]
+    "tips": ["You have a great deal of affinity with the [[Census Taker]]."],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 17,
@@ -311,7 +377,11 @@
       "If a [[cursed]] player has become the [[Werewolf]], both the Werewolf and the original player role will be counted.",
       "You will not be told any player names."
     ],
-    "tips": ["You have a great deal of affinity with the [[Constable]]."]
+    "tips": ["You have a great deal of affinity with the [[Constable]]."],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 18,
@@ -334,7 +404,11 @@
       "New cult members should share information with one another liberally.",
       "Consider having a random cult member yell the [[incantation]] at the execution in case you're wrong.",
       "The more people who die, the harder it will be to win. Consider nominating liberally."
-    ]
+    ],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 19,
@@ -353,7 +427,11 @@
     "tips": [
       "Vampires should share information with one another liberally.",
       "Vampires should be careful, if the Werewolf dies, they lose."
-    ]
+    ],
+    "assignmentRules": {
+      "min": 2,
+      "max": 4
+    }
   },
   {
     "id": 20,
@@ -377,7 +455,11 @@
       "The [[Curse Breaker]] has a vested interest in knowing who has been cursed.",
       "If you can find the [[cursed]] player, try to keep them alive.",
       "You can lose quickly if the [[cult]] finds the [[Anointed]]. Find the Anointed first."
-    ]
+    ],
+    "assignmentRules": {
+      "min": 1,
+      "max": 1
+    }
   },
   {
     "id": 21,
@@ -394,7 +476,11 @@
       "You can be recruited to the [[Cult]].",
       "You win with the rest of the town."
     ],
-    "tips": ["Focus on uncovering the [[Cultist]] or the [[Werewolf]]."]
+    "tips": ["Focus on uncovering the [[Cultist]] or the [[Werewolf]]."],
+    "assignmentRules": {
+      "min": 1,
+      "max": 3
+    }
   },
   {
     "id": 22,
@@ -411,7 +497,11 @@
       "You can be recruited to the [[Cult]].",
       "You win with the rest of the town."
     ],
-    "tips": ["Focus on uncovering the [[Cultist]] or the [[Werewolf]]."]
+    "tips": ["Focus on uncovering the [[Cultist]] or the [[Werewolf]]."],
+    "assignmentRules": {
+      "min": 1,
+      "max": 3
+    }
   },
   {
     "id": 23,
@@ -428,6 +518,10 @@
       "You can be recruited to the [[Cult]].",
       "You win with the rest of the town."
     ],
-    "tips": ["Focus on uncovering the [[Cultist]] or the [[Werewolf]]."]
+    "tips": ["Focus on uncovering the [[Cultist]] or the [[Werewolf]]."],
+    "assignmentRules": {
+      "min": 1,
+      "max": 3
+    }
   }
 ]

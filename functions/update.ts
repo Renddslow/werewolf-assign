@@ -90,6 +90,16 @@ const handleBite = async (user: User, value: boolean) => {
 
 const handler: Handler = async (event: HandlerEvent) => {
   const { id, action, value } = JSON.parse(event.body);
+  const [, token] = event.headers.authorization.split(' ');
+
+  if (token !== process.env.ADMIN_TOKEN) {
+    return {
+      statusCode: 401,
+      body: JSON.stringify({
+        error: 'Unauthorized',
+      }),
+    };
+  }
 
   const user: User = await knex('users')
     .leftJoin('assignments', 'users.id', 'assignments.user_id')

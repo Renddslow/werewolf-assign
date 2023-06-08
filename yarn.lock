@@ -6234,6 +6234,11 @@ pino@^8.5.0:
     sonic-boom "^3.1.0"
     thread-stream "^2.0.0"
 
+pipr@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/pipr/-/pipr-1.2.1.tgz#26ed26cc4de68983cb0205cd404f008cbfcd39da"
+  integrity sha512-XYFZHMeCHlyN3l86BbXZDOkmwvoahnQP3UtN1oIMh8yuewzZDKctJND5IvA9w0JVRmvR4tIABLhOmSLr2a8mMA==
+
 pkg-dir@^6.0.0:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-6.0.1.tgz#8ec964cecaef98a2bdb9c164733f90a5bcd2352d"

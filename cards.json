@@ -346,9 +346,11 @@
       "A Werewolf must not reveal that they are a Werewolf, even if they are executed."
     ],
     "tips": [
+      "Lie.",
       "Werewolves should share information with one another liberally.",
       "You should try to find the [[Vampire]] players and ally with them.",
       "Try to find the [[Silversmith]] and target them first.",
+      "The [[Curse Breaker]] has a vested interest in knowing who has been cursed.",
       "If you can find the [[cursed]] player, try to keep them alive.",
       "You can lose quickly if the [[cult]] finds the [[Anointed]]. Find the Anointed first."
     ]

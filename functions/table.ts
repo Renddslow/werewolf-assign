@@ -35,18 +35,6 @@ type Row = {
 
 type StateRow = {};
 
-const protectionState = (row: Row): 'vampire' | 'werewolf' | false => {
-  if (row.protected_vampire) {
-    return 'vampire';
-  }
-
-  if (row.protected_werewolf) {
-    return 'werewolf';
-  }
-
-  return false;
-};
-
 const rowToStateRow = (row: Row): StateRow => ({
   id: row.id,
   name: row.name,
@@ -55,7 +43,8 @@ const rowToStateRow = (row: Row): StateRow => ({
   recruited: !!row.recruited,
   cursed: !!row.cursed,
   bitten: !!row.bitten,
-  protected: protectionState(row),
+  protected_vampire: !!row.protected_vampire,
+  protected_werewolf: !!row.protected_werewolf,
   role: row.role_id ? cards.find((card) => card.id === row.role_id) : null,
 });
 

@@ -53,5 +53,348 @@
       "Find the silversmith and coordinate your protection.",
       "Your role is vital to the success of the Town, but doesn't yield as much information as you might think. Be careful who you reveal yourself to."
     ]
+  },
+  {
+    "id": 4,
+    "title": "Silversmith",
+    "description": "Each night you may choose someone to protect from werewolves or recruitment.",
+    "category": "protection",
+    "alignment": "town",
+    "informationGiven": "never",
+    "imageSrc": "/cards/04_silversmith.png",
+    "rules": [
+      "During each [[nighttime phase]], you will be asked to choose a player in Slack and send it to the storyteller team.",
+      "That player will be protected from being recruited by the cult or killed by a Werewolf that night.",
+      "You may protect yourself.",
+      "If you are [[cursed]], your protection may fail **or** it may bounce to another player you didn't intend."
+    ],
+    "tips": [
+      "Find the priest and coordinate your protection.",
+      "Werewolves must attack every night. A failed attack reveals key information.",
+      "Your role is vital to the success of the Town. Be careful who you reveal yourself to."
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Hunter",
+    "description": "If you are killed, take someone down with you.",
+    "category": "kill",
+    "alignment": "town",
+    "informationGiven": "never",
+    "imageSrc": "/cards/05_hunter.png",
+    "rules": [
+      "If you are executed by vote in the [[daytime phase]], you may choose one player to kill out loud. If you forget, the storyteller will prompt you.",
+      "If you die by [[Vampire poison]] after a nomination, you may choose one player to kill out loud. If you forget, the storyteller will prompt you.",
+      "If you are killed by a werewolf at night, you will be asked in Slack to choose one player to kill and send it to the storyteller team.",
+      "If you kill the werewolf, the game ends immediately."
+    ],
+    "tips": [
+      "You offer the most to the Town if you can guess right on the Werewolf when you inevitably die. Spend your energy sleuthing.",
+      "Don't die too early."
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Undertaker",
+    "description": "The night after someone is killed by voting, find out their role.",
+    "category": "information",
+    "alignment": "town",
+    "informationGiven": "dependent",
+    "imageSrc": "/cards/06_undertaker.png",
+    "rules": [
+      "The night after someone is executed by vote in the [[daytime phase]], you will be told in Slack the role of that player.",
+      "If that player is currently in the cult, you will be told their original role."
+    ],
+    "tips": [
+      "The least valuable thing you can do in this role is lie about the information you are given."
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Empath",
+    "description": "You start knowing whether two particular people are good or evil.",
+    "category": "information",
+    "alignment": "town",
+    "informationGiven": "game_start",
+    "imageSrc": "/cards/07_empath.png",
+    "rules": [
+      "At the start of the game, you will be told in Slack whether two particular players are good or evil.",
+      "You do not get to pick the players.",
+      "If one of those players dies, you will be told in Slack the role of the other player."
+    ],
+    "tips": ["You have a great deal of affinity with the [[Investigator]] and the [[Washerwoman]]."]
+  },
+  {
+    "id": 8,
+    "title": "Arcanist",
+    "description": "You start knowing a clue about the Anointed's identity. Each night, pick a player to find out if they are cursed.",
+    "category": "information",
+    "alignment": "town",
+    "informationGiven": "nightly",
+    "imageSrc": "/cards/08_arcanist.png",
+    "rules": [
+      "At the start of the game, you will be told in Slack one clue about the player identity of the [[Anointed]].",
+      "Each night, you will be asked to choose a player in Slack and send it to the storyteller team.",
+      "You will receive a \"yes\" or \"no\" answer about whether that player is cursed.",
+      "You do not get to pick the clue."
+    ],
+    "tips": [
+      "Watch out, the [[Cultist]] will want to recruit you.",
+      "Work with the [[Priest]] and the [[Silversmith]] to protect yourself and the Anointed from recruitment.",
+      "Work with the [[Curse Breaker]] to remove curses from other players.",
+      "The Cult can't win if the Anointed is dead."
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Mason",
+    "description": "You start knowing who the other masons are.",
+    "category": "information",
+    "alignment": "town",
+    "informationGiven": "game_start",
+    "imageSrc": "/cards/09_mason.png",
+    "rules": [
+      "At the start of the game, you will be told in Slack who all the other [[Mason]] players are."
+    ],
+    "tips": [
+      "Treat the Masons like a secret society. Don't reveal your membership to anyone else.",
+      "Mason is the easiest role to validate if you've been cursed or not."
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Investigator",
+    "description": "You start knowing that 1 of 2 players is a particular Villain (Vampire or Werewolf).",
+    "category": "information",
+    "alignment": "town",
+    "informationGiven": "game_start",
+    "imageSrc": "/cards/10_investigator.png",
+    "rules": [
+      "At the start of the game, you will be told in Slack that 1 of 2 players is either a vampire or a werewolf.",
+      "It is possible that **both** are villains, but one will be the named villain."
+    ],
+    "tips": [
+      "You have a great deal of affinity with the [[Empath]] and the [[Washerwoman]].",
+      "Keep your story straight."
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Washerwoman",
+    "description": "You start knowing that 1 of 2 players is a particular Townsfolk.",
+    "category": "information",
+    "alignment": "town",
+    "informationGiven": "game_start",
+    "imageSrc": "/cards/11_washerwoman.png",
+    "rules": [
+      "At the start of the game, you will be told in Slack that 1 of 2 players is a particular Townsfolk.",
+      "It is possible that **both** are Townsfolk, but one will be the named Townsfolk."
+    ],
+    "tips": [
+      "You have a great deal of affinity with the [[Empath]] and the [[Investigator]].",
+      "Keep your story straight."
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Town Crier",
+    "description": "Each night following a nomination, you find out if a villain was nominated.",
+    "category": "information",
+    "alignment": "town",
+    "informationGiven": "dependent",
+    "imageSrc": "/cards/12_town_crier.png",
+    "rules": [
+      "Each night following a nomination, you will be told in Slack whether a villain was nominated.",
+      "If there was more that one villain nominated, you will only be told that a villain was nominated.",
+      "You will not be told who the villain was."
+    ],
+    "tips": []
+  },
+  {
+    "id": 13,
+    "title": "Nightwatch",
+    "description": "If more than one person is nominated, learn one of their roles.",
+    "category": "information",
+    "alignment": "town",
+    "informationGiven": "dependent",
+    "imageSrc": "/cards/13_nightwatch.png",
+    "rules": [
+      "If more than one person is nominated, you will be told in Slack the role of one of the nominated players.",
+      "If there is only one nominated player, you will not be told their role.",
+      "You do not get to pick the player."
+    ],
+    "tips": []
+  },
+  {
+    "id": 14,
+    "title": "Curse Breaker",
+    "description": "Each night you may choose someone, if they are cursed, the curse is broken and bounces to another player. If you successfully break a curse, there are no deaths that night.",
+    "category": "protection",
+    "alignment": "town",
+    "informationGiven": "dependent",
+    "imageSrc": "/cards/14_curse_breaker.png",
+    "rules": [
+      "Each night you may choose someone, if they are cursed, the curse is broken and bounces to another player.",
+      "You will be told in Slack if the curse was broken. Only you will have this information.",
+      "If you successfully break a curse, there are no deaths that night.",
+      "If you choose someone who is not cursed, nothing happens."
+    ],
+    "tips": []
+  },
+  {
+    "id": 15,
+    "title": "Anointed",
+    "description": "You are a disguised elder god with no powers. Do not let the cult find you. You may randomly receive clairvoyant information which is always true.",
+    "category": "god",
+    "alignment": "town",
+    "informationGiven": "dependent",
+    "imageSrc": "/cards/15_anointed.png",
+    "rules": [
+      "You have no powers.",
+      "If the cult discovers you, they will try to get you executed during [[daytime phase]] and speak an [[incantation]].",
+      "You may randomly receive clairvoyant information which is always true.",
+      "You cannot be cursed.",
+      "Your role cannot be revealed by the [[Seer]].",
+      "You will be told in Slack if you receive clairvoyant information."
+    ],
+    "tips": []
+  },
+  {
+    "id": 16,
+    "title": "Constable",
+    "description": "Each night, pick a role, find out how many people with that role are in the cult.",
+    "category": "information",
+    "alignment": "town",
+    "informationGiven": "nightly",
+    "imageSrc": "/cards/16_constable.png",
+    "rules": [
+      "Each night, you will be asked to choose a role in Slack and send it to the storyteller team.",
+      "You will receive a number in Slack about how many players with that role are in the cult.",
+      "You will not be told any player names."
+    ],
+    "tips": ["You have a great deal of affinity with the [[Census Taker]]."]
+  },
+  {
+    "id": 17,
+    "title": "Census Taker",
+    "description": "Each night, choose a role, find out how many players have that role.",
+    "category": "information",
+    "alignment": "town",
+    "informationGiven": "nightly",
+    "imageSrc": "/cards/17_census_taker.png",
+    "rules": [
+      "Each night, you will be asked to choose a role in Slack and send it to the storyteller team.",
+      "You will receive a number in Slack about how many players have that role.",
+      "You will not be told any player names."
+    ],
+    "tips": ["You have a great deal of affinity with the [[Constable]]."]
+  },
+  {
+    "id": 18,
+    "title": "Cultist",
+    "description": "Each night you may choose someone to recruit to be in the cult. They now have no powers and are a Villain. Cult members know who the current Cultist is. If the Cultist dies, a random cult member becomes the Cultist.",
+    "category": "recruit",
+    "alignment": "cult",
+    "informationGiven": "nightly",
+    "imageSrc": "/cards/18_cultist.png",
+    "rules": [
+      "Each night you may choose someone to recruit to be in the cult.",
+      "They now have no powers and are a Villain. They know you recruited them.",
+      "If the Cultist dies, a random cult member becomes the Cultist.",
+      "To win, you must convince the group to execute the person you believe to be the Anointed, saying \"All hail Cthulu!\" before they are executed.",
+      "If you guess wrong, nothing happens, but you are outed as the Cultist."
+    ],
+    "tips": [
+      "New cult members should share information with one another liberally.",
+      "Consider having a random cult member yell the [[incantation]] at the execution in case you're wrong.",
+      "The more people who die, the harder it will be to win. Consider nominating liberally."
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Vampire",
+    "description": "Attack another player each night. That player dies if there is a nomination the next day. The Vampires know each other.",
+    "category": "attack",
+    "alignment": "villain",
+    "informationGiven": "never",
+    "imageSrc": "/cards/19_vampire.png",
+    "rules": [
+      "Vampires choose a player to attack together.",
+      "That player dies if there is a nomination the next day.",
+      "The Vampires will be told who the other Vampires are at the start of game in Slack."
+    ],
+    "tips": [
+      "Vampires should share information with one another liberally.",
+      "Vampires should be careful, if the Werewolf dies, they lose."
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Werewolf",
+    "description": "Attack another player each night. Werewolves know each other.",
+    "category": "attack",
+    "alignment": "villain",
+    "informationGiven": "never",
+    "imageSrc": "/cards/20_werewolf.png",
+    "rules": [
+      "If there is more than one Werewolf, they will be told who the other Werewolves are at the start of game in Slack.",
+      "If there is more than one Werewolf, they will each pick a separate person to kill.",
+      "A Werewolf must not reveal that they are a Werewolf, even if they are executed."
+    ],
+    "tips": [
+      "Werewolves should share information with one another liberally.",
+      "You should try to find the [[Vampire]] players and ally with them.",
+      "Try to find the [[Silversmith]] and target them first.",
+      "If you can find the [[cursed]] player, try to keep them alive.",
+      "You can lose quickly if the [[cult]] finds the [[Anointed]]. Find the Anointed first."
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Butcher",
+    "description": "You have no special powers, but at least you have a job.",
+    "category": "none",
+    "alignment": "town",
+    "informationGiven": "never",
+    "imageSrc": "/cards/21_butcher.png",
+    "rules": [
+      "You have no powers.",
+      "You cannot be cursed.",
+      "You can be recruited to the [[Cult]].",
+      "You win with the rest of the town."
+    ],
+    "tips": ["Focus on uncovering the [[Cultist]] or the [[Werewolf]]."]
+  },
+  {
+    "id": 22,
+    "title": "Baker",
+    "description": "You have no special powers, but at least you have a job.",
+    "category": "none",
+    "alignment": "town",
+    "informationGiven": "never",
+    "imageSrc": "/cards/22_baker.png",
+    "rules": [
+      "You have no powers.",
+      "You cannot be cursed.",
+      "You can be recruited to the [[Cult]].",
+      "You win with the rest of the town."
+    ],
+    "tips": ["Focus on uncovering the [[Cultist]] or the [[Werewolf]]."]
+  },
+  {
+    "id": 23,
+    "title": "Candlestick Maker",
+    "description": "You have no special powers, but at least you have a job.",
+    "category": "none",
+    "alignment": "town",
+    "informationGiven": "never",
+    "imageSrc": "/cards/23_candlestick_maker.png",
+    "rules": [
+      "You have no powers.",
+      "You cannot be cursed.",
+      "You can be recruited to the [[Cult]].",
+      "You win with the rest of the town."
+    ],
+    "tips": ["Focus on uncovering the [[Cultist]] or the [[Werewolf]]."]
   }
 ]

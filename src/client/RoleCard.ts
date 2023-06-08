@@ -18,7 +18,10 @@ const parseMarkdown = (text: string, definitions: Record<string, string>) => {
   if (!text) return '';
   return text
     .replace(matchBold, '<strong>$1</strong>')
-    .replace(matchDfn, (_, term) => `<dfn data-def="${definitions[term]}">${term}</dfn>`);
+    .replace(
+      matchDfn,
+      (_, term) => `<dfn data-def="${definitions[term.toLowerCase()]}">${term}</dfn>`,
+    );
 };
 
 const styles = css`
@@ -41,10 +44,16 @@ const styles = css`
   }
 
   .image {
-    aspect-ratio: 125 / 174;
     width: 100%;
-    padding: 12px 24px;
-    object-fit: contain;
+    padding: 24px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .image img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
   }
 
   #card-content {
@@ -119,6 +128,10 @@ const styles = css`
     font-weight: 500;
     padding: 12px;
     width: 200px;
+    left: 0;
+    top: 100%;
+    transform: translateX(-50%);
+    z-index: 100;
   }
 
   dfn:hover::before {
@@ -154,6 +167,13 @@ const styles = css`
   ol {
     padding-left: 12px;
   }
+
+  @media screen and (max-width: 768px) {
+    .card {
+      display: block;
+      max-width: 360px;
+    }
+  }
 `;
 
 class RoleCard extends HTMLElement {
@@ -169,7 +189,9 @@ class RoleCard extends HTMLElement {
           ${styles}
       </style>
       <div class="card">
-        <img src="" class="image" alt="Werewolf role card" aria-labelledby="card-content" />
+        <div class="image">
+          <img src="" alt="Werewolf role card" aria-labelledby="card-content" />
+        </div>
         <div id="card-content">
             <div class="information">
               <h2 class="title"></h2>
@@ -216,7 +238,7 @@ class RoleCard extends HTMLElement {
     this.shadow.querySelector('.category').textContent = data.category;
     this.shadow.querySelector('.alignment').textContent = `Team: ${data.alignment}`;
     this.shadow.querySelector('.alignment').classList.add(data.alignment);
-    const image = this.shadow.querySelector('.image') as HTMLImageElement;
+    const image = this.shadow.querySelector('.image img') as HTMLImageElement;
     image.src = data.imageSrc;
     image.alt = `Role card for ${data.title}`;
     const rulesList = this.shadow.querySelector('.rules-list') as HTMLUListElement;

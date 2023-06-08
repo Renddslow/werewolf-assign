@@ -14,15 +14,16 @@ const handler: Handler = async (event: HandlerEvent) => {
   const dfn = [...card.rules, ...card.tips]
     .reduce((acc, rule) => {
       const regexpr = /\[\[(.*?)]]/g;
-      const matches = regexpr.exec(rule);
-      if (matches) {
+      let matches = regexpr.exec(rule);
+      while (matches) {
         acc.push(matches[1]);
+        matches = regexpr.exec(rule);
       }
       return acc;
     }, [])
     .reduce((acc, definition) => {
-      if (definitions[definition]) {
-        acc[definition] = definitions[definition];
+      if (definitions[definition.toLowerCase()]) {
+        acc[definition.toLowerCase()] = definitions[definition.toLowerCase()];
       }
       return acc;
     }, {});

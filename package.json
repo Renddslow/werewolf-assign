@@ -28,6 +28,7 @@
     "react-dom": "^18.2.0",
     "serverless-mysql": "^1.5.5",
     "sirv": "^2.0.3",
+    "sort-on": "^5.2.0",
     "styled-components": "^5.3.10"
   },
   "type": "module",

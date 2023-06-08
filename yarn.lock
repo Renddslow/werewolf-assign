@@ -3106,7 +3106,7 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
-dot-prop@7.2.0, dot-prop@^7.0.0:
+dot-prop@7.2.0, dot-prop@^7.0.0, dot-prop@^7.2.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-7.2.0.tgz#468172a3529779814d21a779c1ba2f6d76609809"
   integrity sha512-Ol/IPXUARn9CSbkrdV4VJo7uCy1I3VuSiWCaFSg+8BdUOzF9n3jefIpcgAydvUZbTdEBZs2vEiTiS9m61ssiDA==
@@ -7095,6 +7095,13 @@ sort-keys@^1.0.0:
   integrity sha512-vzn8aSqKgytVik0iwdBEi+zevbTYZogewTUM6dtpmGwEcdzbub/TX4bCzRhebDCRC3QzXgJsLRKB2V/Oof7HXg==
   dependencies:
     is-plain-obj "^1.0.0"
+
+sort-on@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/sort-on/-/sort-on-5.2.0.tgz#370f1e61fa810ca43f9704f611b5f3661303b6cb"
+  integrity sha512-VMjzSQ6S4iMIt8VYpPJGUhViP1kwap7xzPdn/U00HkzkAwazrGsPVmjrSlrXXHpd6VzaUIxEWGvcUBkUAD0jrA==
+  dependencies:
+    dot-prop "^7.2.0"
 
 source-map-js@^1.0.2:
   version "1.0.2"

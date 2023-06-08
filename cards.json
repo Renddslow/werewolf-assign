@@ -2,6 +2,7 @@
   {
     "id": 1,
     "title": "Seer",
+    "turnOrder": 4,
     "description": "Each night, choose a player and learn if they are a Townsfolk, a Vampire, or a Werewolf.",
     "category": "information",
     "alignment": "town",
@@ -21,6 +22,7 @@
   {
     "id": 2,
     "title": "Apprentice Seer",
+    "turnOrder": 10,
     "description": "You become Seer when the Seer dies.",
     "category": "information",
     "alignment": "town",
@@ -38,6 +40,7 @@
   {
     "id": 3,
     "title": "Priest",
+    "turnOrder": 1,
     "description": "Each night you may choose someone to protect from vampires or recruitment.",
     "category": "protection",
     "alignment": "town",
@@ -57,6 +60,7 @@
   {
     "id": 4,
     "title": "Silversmith",
+    "turnOrder": 1,
     "description": "Each night you may choose someone to protect from werewolves or recruitment.",
     "category": "protection",
     "alignment": "town",
@@ -77,6 +81,7 @@
   {
     "id": 5,
     "title": "Hunter",
+    "turnOrder": 11,
     "description": "If you are killed, take someone down with you.",
     "category": "kill",
     "alignment": "town",
@@ -96,6 +101,7 @@
   {
     "id": 6,
     "title": "Undertaker",
+    "turnOrder": 2,
     "description": "The night after someone is killed by voting, find out their role.",
     "category": "information",
     "alignment": "town",
@@ -112,6 +118,7 @@
   {
     "id": 7,
     "title": "Empath",
+    "turnOrder": 7,
     "description": "You start knowing whether two particular people are good or evil.",
     "category": "information",
     "alignment": "town",
@@ -127,6 +134,7 @@
   {
     "id": 8,
     "title": "Arcanist",
+    "turnOrder": 7,
     "description": "You start knowing a clue about the Anointed's identity. Each night, pick a player to find out if they are cursed.",
     "category": "information",
     "alignment": "town",
@@ -148,6 +156,7 @@
   {
     "id": 9,
     "title": "Mason",
+    "turnOrder": 7,
     "description": "You start knowing who the other masons are.",
     "category": "information",
     "alignment": "town",
@@ -164,6 +173,7 @@
   {
     "id": 10,
     "title": "Investigator",
+    "turnOrder": 7,
     "description": "You start knowing that 1 of 2 players is a particular Villain (Vampire or Werewolf).",
     "category": "information",
     "alignment": "town",
@@ -181,6 +191,7 @@
   {
     "id": 11,
     "title": "Washerwoman",
+    "turnOrder": 7,
     "description": "You start knowing that 1 of 2 players is a particular Townsfolk.",
     "category": "information",
     "alignment": "town",
@@ -198,6 +209,7 @@
   {
     "id": 12,
     "title": "Town Crier",
+    "turnOrder": 2,
     "description": "Each night following a nomination, you find out if a villain was nominated.",
     "category": "information",
     "alignment": "town",
@@ -208,11 +220,12 @@
       "If there was more that one villain nominated, you will only be told that a villain was nominated.",
       "You will not be told who the villain was."
     ],
-    "tips": []
+    "tips": ["You have a great deal of affinity with the [[Nightwatch]]."]
   },
   {
     "id": 13,
     "title": "Nightwatch",
+    "turnOrder": 2,
     "description": "If more than one person is nominated, learn one of their roles.",
     "category": "information",
     "alignment": "town",
@@ -223,11 +236,12 @@
       "If there is only one nominated player, you will not be told their role.",
       "You do not get to pick the player."
     ],
-    "tips": []
+    "tips": ["You have a great deal of affinity with the [[Town Crier]]."]
   },
   {
     "id": 14,
     "title": "Curse Breaker",
+    "turnOrder": 1,
     "description": "Each night you may choose someone, if they are cursed, the curse is broken and bounces to another player. If you successfully break a curse, there are no deaths that night.",
     "category": "protection",
     "alignment": "town",
@@ -239,11 +253,12 @@
       "If you successfully break a curse, there are no deaths that night.",
       "If you choose someone who is not cursed, nothing happens."
     ],
-    "tips": []
+    "tips": ["Work with the [[Arcanist]] to break curses and protect the [[Anointed]]."]
   },
   {
     "id": 15,
     "title": "Anointed",
+    "turnOrder": 9,
     "description": "You are a disguised elder god with no powers. Do not let the cult find you. You may randomly receive clairvoyant information which is always true.",
     "category": "god",
     "alignment": "town",
@@ -257,11 +272,15 @@
       "Your role cannot be revealed by the [[Seer]].",
       "You will be told in Slack if you receive clairvoyant information."
     ],
-    "tips": []
+    "tips": [
+      "Don't let the [[Arcanist]] discover you.",
+      "Getting recruited isn't a bad option for you."
+    ]
   },
   {
     "id": 16,
     "title": "Constable",
+    "turnOrder": 5,
     "description": "Each night, pick a role, find out how many people with that role are in the cult.",
     "category": "information",
     "alignment": "town",
@@ -277,6 +296,7 @@
   {
     "id": 17,
     "title": "Census Worker",
+    "turnOrder": 6,
     "description": "Each night, choose a role, find out how many living players started the game with that role.",
     "category": "information",
     "alignment": "town",
@@ -296,6 +316,7 @@
   {
     "id": 18,
     "title": "Cultist",
+    "turnOrder": 3,
     "description": "Each night you may choose someone to recruit to be in the cult. They now have no powers and are a Villain. Cult members know who the current Cultist is. If the Cultist dies, a random cult member becomes the Cultist.",
     "category": "recruit",
     "alignment": "cult",
@@ -306,6 +327,7 @@
       "They now have no powers and are a Villain. They know you recruited them.",
       "If the Cultist dies, a random cult member becomes the Cultist.",
       "To win, you must convince the group to execute the person you believe to be the Anointed, saying \"All hail Cthulu!\" before they are executed.",
+      "If the [[Anointed]] gets recruited, you may still win by executing them—be careful though, you don't want a Jonestown on your hands.",
       "If you guess wrong, nothing happens, but you are outed as the Cultist."
     ],
     "tips": [
@@ -317,6 +339,7 @@
   {
     "id": 19,
     "title": "Vampire",
+    "turnOrder": 3,
     "description": "Attack another player each night. That player dies if there is a nomination the next day. The Vampires know each other.",
     "category": "attack",
     "alignment": "villain",
@@ -335,6 +358,7 @@
   {
     "id": 20,
     "title": "Werewolf",
+    "turnOrder": 3,
     "description": "Attack another player each night. Werewolves know each other.",
     "category": "attack",
     "alignment": "villain",
@@ -358,6 +382,7 @@
   {
     "id": 21,
     "title": "Butcher",
+    "turnOrder": 13,
     "description": "You have no special powers, but at least you have a job.",
     "category": "none",
     "alignment": "town",
@@ -374,6 +399,7 @@
   {
     "id": 22,
     "title": "Baker",
+    "turnOrder": 13,
     "description": "You have no special powers, but at least you have a job.",
     "category": "none",
     "alignment": "town",
@@ -390,6 +416,7 @@
   {
     "id": 23,
     "title": "Candlestick Maker",
+    "turnOrder": 14,
     "description": "You have no special powers, but at least you have a job.",
     "category": "none",
     "alignment": "town",

@@ -74,11 +74,9 @@ const handler: Handler = async (event: HandlerEvent) => {
     };
   }
 
-  const users: Row[] = await knex('users').leftJoin(
-    'assignments',
-    'users.id',
-    'assignments.user_id',
-  );
+  const users: Row[] = await knex('users')
+    .leftJoin('assignments', 'users.id', 'assignments.user_id')
+    .select('users.*', 'assignments.role_id');
 
   return {
     statusCode: 200,

@@ -1,6 +1,5 @@
 import { Handler, HandlerEvent } from '@netlify/functions';
-import { Simulate } from 'react-dom/test-utils';
-import select = Simulate.select;
+import cards from '../cards.json';
 
 const Knex = require('knex');
 const knexServerlessMysql = require('knex-serverless-mysql');
@@ -35,56 +34,110 @@ type User = {
 const CULTIST = 18;
 const WEREWOLF = 20;
 
+const getCard = (id: number) => {
+  return cards.find((card) => card.id === id);
+};
+
 const handleKilled = async (user: User) => {
   await knex('users').where({ id: user.id }).update({
     killed: true,
   });
 
   if (user.role_id === WEREWOLF) {
-    const cursed: User = await knex('users').where({ cursed: true }).first();
+    const cursed: User = await knex('users')
+      .leftJoin('assignments', 'users.id', 'assignments.user_id')
+      .where({ cursed: true })
+      .select('users.*', 'assignments.role_id')
+      .first();
     if (cursed) {
       await knex('assignments').where({ user_id: cursed.id }).update({
         role_id: WEREWOLF,
       });
+      await knex('events').insert({
+        type: 'CURSED_BECOMES_WEREWOLF',
+        content: `${cursed.name} (${getCard(cursed.role_id).title}) has become a werewolf!`,
+      });
     }
   }
   if (user.role_id === CULTIST) {
-    const recruits: User[] = await knex('users').where({ recruited: true });
+    const recruits: User[] = await knex('users')
+      .leftJoin('assignments', 'users.id', 'assignments.user_id')
+      .where({ recruited: true })
+      .select('users.*', 'assignments.role_id');
     if (recruits.length) {
       const idx = Math.floor(Math.random() * recruits.length);
       await knex('assignments').where({ user_id: recruits[idx].id }).update({
         role_id: CULTIST,
+      });
+      await knex('events').insert({
+        type: 'RECRUIT_BECOMES_CULTIST',
+        content: `${recruits[idx].name} (${
+          getCard(recruits[idx].role_id).title
+        }) has become a cultist!`,
       });
     }
   }
 };
 
 const handleProtection = async (user: User, from: 'vampire' | 'werewolf', value: boolean) => {
-  return knex('users')
+  await knex('users')
     .where({ id: user.id })
     .update({
       [`protected_${from}`]: value,
     });
+  return knex('events').insert({
+    type: 'RECRUIT_BECOMES_CULTIST',
+    content: `${user.name} (${
+      getCard(user.role_id).title
+    }) has been protected from ${from} attacks and recruitment!`,
+  });
 };
 
 const handleRecruitment = async (user: User, value: boolean) => {
-  return knex('users').where({ id: user.id }).update({
+  await knex('users').where({ id: user.id }).update({
     recruited: value,
   });
+  if (value) {
+    await knex('events').insert({
+      type: 'USER_RECRUITED',
+      content: `${user.name} (${getCard(user.role_id).title}) has joined the cult`,
+    });
+  }
+  return;
 };
 
 const handleCursing = async (user: User) => {
+  const cursed: User = await knex('users')
+    .leftJoin('assignments', 'users.id', 'assignments.user_id')
+    .where({ cursed: true })
+    .select('users.*', 'assignments.role_id')
+    .first();
+  if (cursed) {
+    await knex('events').insert({
+      type: 'CURSE_BROKEN',
+      content: `${cursed.name} (${getCard(cursed.role_id).title}) had their curse broken.`,
+    });
+  }
+
   await knex('users').where({ cursed: true }).update({
     cursed: false,
   });
-  return knex('users').where({ id: user.id }).update({
+  await knex('users').where({ id: user.id }).update({
     cursed: true,
+  });
+  return knex('events').insert({
+    type: 'USER_CURSED',
+    content: `${user.name} (${getCard(user.role_id).title}) was cursed.`,
   });
 };
 
 const handleBite = async (user: User, value: boolean) => {
-  return knex('users').where({ id: user.id }).update({
+  await knex('users').where({ id: user.id }).update({
     bitten: value,
+  });
+  return knex('events').insert({
+    type: 'USER_BITTEN',
+    content: `${user.name} (${getCard(user.role_id).title}) was bitten.`,
   });
 };
 

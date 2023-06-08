@@ -8,6 +8,13 @@
       body {
         background: #000;
       }
+
+      .wrapper {
+        display: grid;
+        grid-template-columns: minmax(0, max-content) minmax(0, 300px);
+        grid-gap: 32px;
+        justify-content: space-between;
+      }
     </style>
   </head>
   <body>
@@ -23,6 +30,14 @@
         </thead>
         <tbody></tbody>
       </table>
+      <div class="log">
+        <div class="log-header-row">
+          <h2>Event Log</h2>
+          <button class="new-round" type="button" id="new-round">
+            New Round 🌕
+          </button>
+        </div>
+      </div>
     </div>
     <script>
       (() => {

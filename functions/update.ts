@@ -42,6 +42,10 @@ const handleKilled = async (user: User) => {
   await knex('users').where({ id: user.id }).update({
     killed: true,
   });
+  await knex('events').insert({
+    type: 'KILLED',
+    content: `${user.name} (${getCard(user.role_id).title}) was killed!`,
+  });
 
   if (user.role_id === WEREWOLF) {
     const cursed: User = await knex('users')
@@ -86,7 +90,7 @@ const handleProtection = async (user: User, from: 'vampire' | 'werewolf', value:
       [`protected_${from}`]: value,
     });
   return knex('events').insert({
-    type: 'RECRUIT_BECOMES_CULTIST',
+    type: 'USER_PROTECTED',
     content: `${user.name} (${
       getCard(user.role_id).title
     }) has been protected from ${from} attacks and recruitment!`,

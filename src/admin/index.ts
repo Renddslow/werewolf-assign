@@ -12,8 +12,6 @@ const stateRow = (id: number) => `
     </div>
 `;
 
-// TODO!!! ASSIGNMENTS
-
 const listener = (token: string) => async (e: Event) => {
   const target = e.target as HTMLInputElement;
 
@@ -56,6 +54,11 @@ const listener = (token: string) => async (e: Event) => {
   });
 };
 
+const formatter = new Intl.DateTimeFormat('en-US', {
+  hour: 'numeric',
+  minute: 'numeric',
+});
+
 const main = async (token: string) => {
   const table = await fetch('/.netlify/functions/table', {
     headers: {
@@ -63,9 +66,22 @@ const main = async (token: string) => {
     },
   }).then((d) => d.json());
 
+  const events = await fetch('/.netlify/functions/events', {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }).then((d) => d.json());
+
+  document.querySelector('.log').innerHTML = `
+    <div class="log-header-row">
+      <h2>Event Log</h2>
+      <button class="new-round" type="button" id="new-round">
+        New Round 🌕
+      </button>
+    </div>
+  `;
+
   document.querySelector('tbody').innerHTML = '';
-  const cb = listener(token);
-  window.removeEventListener('change', cb);
 
   sortOn(table, ['-killed', 'role.turnOrder', 'role.title']).forEach((r) => {
     const row = document.createElement('tr');
@@ -112,7 +128,15 @@ const main = async (token: string) => {
 
     document.querySelector('tbody').appendChild(row);
   });
-  window.addEventListener('change', cb);
+  events.forEach((event) => {
+    const div = document.createElement('div');
+    div.classList.add('event');
+    div.classList.add(event.type);
+    div.innerHTML = `<span class="time">${formatter.format(new Date(event.created_at))}</span> ${
+      event.content
+    }`;
+    document.querySelector('.log').appendChild(div);
+  });
   setTimeout(() => main(token), 10 * 1000);
 };
 
@@ -122,5 +146,16 @@ const main = async (token: string) => {
     window.location.replace('/');
   }
 
+  window.addEventListener('change', listener(query.get('token')));
+  window.addEventListener('click', async (e) => {
+    if ((e.target as HTMLElement).id === 'new-round') {
+      await fetch('/.netlify/functions/new-round', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${query.get('token')}`,
+        },
+      });
+    }
+  });
   main(query.get('token'));
 })();

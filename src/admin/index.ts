@@ -11,11 +11,24 @@ const stateRow = (id: number) => `
     </div>
 `;
 
-const listener = (e: Event) => {
+const listener = (token: string) => async (e: Event) => {
   const target = e.target as HTMLInputElement;
-  const stringVal = target.checked ? 'true' : 'false';
 
   const [action, id] = target.id.split('-');
+
+  if ((action === 'cursed' && !target.checked) || (action === 'killed' && !target.checked)) {
+    e.preventDefault();
+    target.checked = true;
+    return;
+  }
+
+  if (action === 'info') {
+    if (target.checked) {
+      window.localStorage.setItem(`info-${id}`, '@');
+    } else {
+      window.localStorage.removeItem(`info-${id}`);
+    }
+  }
 
   if (action === 'protected_vampire') {
     (document.querySelector(`#recruited-${id}`) as HTMLInputElement).disabled = target.checked;
@@ -26,6 +39,18 @@ const listener = (e: Event) => {
     (document.querySelector(`#killed-${id}`) as HTMLInputElement).disabled = target.checked;
     (document.querySelector(`#recruited-${id}`) as HTMLInputElement).disabled = target.checked;
   }
+
+  await fetch('/.netlify/functions/update', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      id,
+      action,
+      value: target.checked,
+    }),
+  });
 };
 
 const main = async (token: string) => {
@@ -36,7 +61,8 @@ const main = async (token: string) => {
   }).then((d) => d.json());
 
   document.querySelector('tbody').innerHTML = '';
-  window.removeEventListener('change', listener);
+  const cb = listener(token);
+  window.removeEventListener('change', cb);
 
   table
     .sort((a, b) => a.role?.turnOrder - b.role?.turnOrder)
@@ -53,12 +79,15 @@ const main = async (token: string) => {
       const role = document.createElement('td');
       role.innerHTML = `
         <span><strong>${r.role?.title}</strong></span>
-        <input type="checkbox" aria-label="Role Info" class="info" />
+        <input type="checkbox" aria-label="Role Info" class="info" id="info-${r.id}" />
         <ul>${r.role?.rules
           .map((rule) => `<li>${rule.replaceAll(/\[\[(.*?)]]/g, '$1')}</li>`)
           .join('')}</ul>
       `;
       row.appendChild(role);
+      (row.querySelector('.info') as HTMLInputElement).checked = !!window.localStorage.getItem(
+        `info-${r.id}`,
+      );
 
       const state = document.createElement('td');
       state.innerHTML = stateRow(r.id);
@@ -83,7 +112,7 @@ const main = async (token: string) => {
 
       document.querySelector('tbody').appendChild(row);
     });
-  window.addEventListener('change', listener);
+  window.addEventListener('change', cb);
   setTimeout(() => main(token), 10 * 1000);
 };
 

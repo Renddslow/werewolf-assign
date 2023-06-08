@@ -232,7 +232,6 @@ class RoleCard extends HTMLElement {
   }
 
   render(data: CardData) {
-    console.log(data);
     this.shadow.querySelector('.title').textContent = data.title;
     this.shadow.querySelector('.description').textContent = data.description;
     this.shadow.querySelector('.category').textContent = data.category;

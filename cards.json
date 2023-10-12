@@ -14,32 +14,9 @@
       "If that player is a Cultist, they will read as a Townsfolk."
     ],
     "tips": [
-      "Find the Apprentice Seer and share information with them as soon as you can—just in case.",
       "Be careful about who you share information with, you are a vital part of information gathering for your team.",
       "Make sure you aren't [[cursed]]; if you are, find someone who can break it for you."
     ],
-    "assignmentRules": {
-      "min": 1,
-      "max": 1
-    }
-  },
-  {
-    "id": 2,
-    "title": "Apprentice Seer",
-    "turnOrder": 10,
-    "description": "You become Seer when the Seer dies.",
-    "category": "information",
-    "alignment": "town",
-    "informationGiven": "nightly",
-    "imageSrc": "/cards/02_apprentice_seer.png",
-    "rules": [
-      "You will receive **no** information until the Seer dies.",
-      "The Seer rules are below:",
-      "During each [[nighttime phase]], you will be asked to choose a player in Slack and send it to the storyteller team.",
-      "You will be told if that player is a Townsfolk, a Vampire, or a Werewolf.",
-      "If that player is a Cultist, they will read as a Townsfolk."
-    ],
-    "tips": ["Find the Seer and share information with them as soon as you can—just in case."],
     "assignmentRules": {
       "min": 1,
       "max": 1
@@ -273,26 +250,6 @@
     }
   },
   {
-    "id": 13,
-    "title": "Nightwatch",
-    "turnOrder": 2,
-    "description": "If more than one person is nominated, learn one of their roles.",
-    "category": "information",
-    "alignment": "town",
-    "informationGiven": "dependent",
-    "imageSrc": "/cards/13_nightwatch.png",
-    "rules": [
-      "If more than one person is nominated, you will be told in Slack the role of one of the nominated players.",
-      "If there is only one nominated player, you will not be told their role.",
-      "You do not get to pick the player."
-    ],
-    "tips": ["You have a great deal of affinity with the [[Town Crier]]."],
-    "assignmentRules": {
-      "min": 1,
-      "max": 1
-    }
-  },
-  {
     "id": 14,
     "title": "Curse Breaker",
     "turnOrder": 1,
@@ -354,30 +311,6 @@
       "You will not be told any player names."
     ],
     "tips": ["You have a great deal of affinity with the [[Census Taker]]."],
-    "assignmentRules": {
-      "min": 1,
-      "max": 1
-    }
-  },
-  {
-    "id": 17,
-    "title": "Census Worker",
-    "turnOrder": 6,
-    "description": "Each night, choose a role, find out how many living players started the game with that role.",
-    "category": "information",
-    "alignment": "town",
-    "informationGiven": "nightly",
-    "imageSrc": "/cards/17_census_worker.png",
-    "rules": [
-      "Each night, you will be asked to choose a role in Slack and send it to the storyteller team.",
-      "You will receive a number in Slack about how many players started the game with that role.",
-      "If the [[Seer]] had died, leaving the [[Apprentice Seer]] to take their place, you would be told that there was only one Seer.",
-      "If any player joins a cult, you will be given the count based on their old role.",
-      "If a player has died, they will not be counted.",
-      "If a [[cursed]] player has become the [[Werewolf]], both the Werewolf and the original player role will be counted.",
-      "You will not be told any player names."
-    ],
-    "tips": ["You have a great deal of affinity with the [[Constable]]."],
     "assignmentRules": {
       "min": 1,
       "max": 1

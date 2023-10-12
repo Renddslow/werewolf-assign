@@ -9,6 +9,7 @@
     "informationGiven": "nightly",
     "imageSrc": "/cards/01_seer.png",
     "rules": [
+      "You will not get information on the first night.",
       "During each [[nighttime phase]], you will be asked to choose a player in Slack and send it to the storyteller team.",
       "You will be told if that player is a Townsfolk, a Vampire, or a Werewolf.",
       "If that player is a Cultist, they will read as a Townsfolk."
@@ -35,6 +36,7 @@
       "During each [[nighttime phase]], you will be asked to choose a player in Slack and send it to the storyteller team.",
       "That player will be protected from being recruited by the cult or turned into a Vampire that night.",
       "You may protect yourself.",
+      "You will not get to choose someone on the first night.",
       "If you are [[cursed]], your protection may fail **or** it may bounce to another player you didn't intend."
     ],
     "tips": [
@@ -59,6 +61,7 @@
       "During each [[nighttime phase]], you will be asked to choose a player in Slack and send it to the storyteller team.",
       "That player will be protected from being recruited by the cult or killed by a Werewolf that night.",
       "You may protect yourself.",
+      "You will not get to choose someone on the first night.",
       "If you are [[cursed]], your protection may fail **or** it may bounce to another player you didn't intend."
     ],
     "tips": [
@@ -148,8 +151,9 @@
     "informationGiven": "nightly",
     "imageSrc": "/cards/08_arcanist.png",
     "rules": [
-      "At the start of the game, you will be told in Slack one clue about the player identity of the [[Anointed]].",
+      "At the start of the game, you will be told in Slack one clue about the player identity of the [[Anointed]]."
       "Each night, you will be asked to choose a player in Slack and send it to the storyteller team.",
+      "You will not get to pick a player on the first night.",
       "You will receive a \"yes\" or \"no\" answer about whether that player is cursed.",
       "You do not get to pick the clue."
     ],
@@ -260,6 +264,7 @@
     "imageSrc": "/cards/14_curse_breaker.png",
     "rules": [
       "Each night you may choose someone, if they are cursed, the curse is broken and bounces to another player.",
+      "You will not get to choose someone on the first night.",
       "You will be told in Slack if the curse was broken. Only you will have this information.",
       "If you successfully break a curse, there are no deaths that night.",
       "If you choose someone who is not cursed, nothing happens."
@@ -307,6 +312,7 @@
     "imageSrc": "/cards/16_constable.png",
     "rules": [
       "Each night, you will be asked to choose a role in Slack and send it to the storyteller team.",
+      "You will not get to pick a role on the first night.",
       "You will receive a number in Slack about how many players with that role are in the cult.",
       "You will not be told any player names."
     ],

@@ -142,7 +142,7 @@ const main = async (token: string) => {
       (row.querySelector('.recruited') as HTMLInputElement).disabled = true;
     }
 
-    if (r.id === 20) {
+    if (r.role.title === 'Werewolf') {
       // Werewolves cannot be recruited
       (row.querySelector('.recruited') as HTMLInputElement).disabled = true;
       (row.querySelector('.bitten') as HTMLInputElement).disabled = true;

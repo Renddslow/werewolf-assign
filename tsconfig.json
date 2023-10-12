@@ -10,6 +10,7 @@
     "module": "commonjs",
     "baseUrl": ".",
     "resolveJsonModule": true,
+    "lib": ["es2021", "dom"],
     "jsx": "react",
     "jsxFactory": "React.createElement",
     "jsxFragmentFactory": "React.Fragment"

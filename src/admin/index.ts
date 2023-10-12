@@ -59,6 +59,22 @@ const formatter = new Intl.DateTimeFormat('en-US', {
   minute: 'numeric',
 });
 
+type Role = {
+  role: {
+    turnOrder: number;
+    title: string;
+    rules: string[];
+  };
+  name: string;
+  id: number;
+  killed: boolean;
+  bitten: boolean;
+  cursed: boolean;
+  recruited: boolean;
+  protected_vampire: boolean;
+  protected_werewolf: boolean;
+}
+
 const main = async (token: string) => {
   const table = await fetch('/.netlify/functions/table', {
     headers: {
@@ -83,10 +99,10 @@ const main = async (token: string) => {
 
   document.querySelector('tbody').innerHTML = '';
 
-  sortOn(table, ['-killed', 'role.turnOrder', 'role.title']).forEach((r) => {
+  sortOn(table, ['-killed', 'role.turnOrder', 'role.title']).forEach((r: Role) => {
     const row = document.createElement('tr');
     const turnOrder = document.createElement('td');
-    turnOrder.innerText = r.role?.turnOrder || '';
+    turnOrder.innerText = r.role?.turnOrder.toString() || '';
     row.appendChild(turnOrder);
 
     const name = document.createElement('td');

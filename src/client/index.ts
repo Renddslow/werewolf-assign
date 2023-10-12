@@ -18,14 +18,13 @@ const main = async () => {
     if (existingCard) {
       existingCard.remove();
     }
-    window.location.reload();
+    return setTimeout(main, 10 * 1000);
   }
 
   const currentRole = window.localStorage.getItem('werewolf:role:october-2023');
 
   if (
-    (role.role !== null && !currentRole && role.role) ||
-    (role.role !== null && role.role !== parseInt(currentRole, 10))
+    (!currentRole && role.role) || (role.role !== parseInt(currentRole, 10))
   ) {
     window.localStorage.setItem('werewolf:role:october-2023', role.role);
     const existingCard = document.querySelector('role-card');

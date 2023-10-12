@@ -142,6 +142,11 @@ const main = async (token: string) => {
       (row.querySelector('.recruited') as HTMLInputElement).disabled = true;
     }
 
+    if (r.id === 20) {
+      // Werewolves cannot be recruited
+      (row.querySelector('.recruited') as HTMLInputElement).disabled = true;
+    }
+
     document.querySelector('tbody').appendChild(row);
   });
   events.forEach((event) => {

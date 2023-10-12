@@ -34,7 +34,6 @@ type Card = {
 };
 
 const SEER = 1;
-const APPRENTICE_SEER = 2;
 const PRIEST = 3;
 const SILVERSMITH = 4;
 const ARCANIST = 8;
@@ -98,7 +97,8 @@ const handler: Handler = async (event: HandlerEvent) => {
   const cardsNeed = users.length;
   const finalDeck = [];
   let i = 0;
-  const SINGLE_LIMITS: number[] = [SEER, APPRENTICE_SEER, ANOINTED, CULTIST, ARCANIST];
+  const SINGLE_LIMITS: number[] = [SEER, ANOINTED, CULTIST, ARCANIST];
+  console.log(users, cardsNeed);
   while (finalDeck.length < cardsNeed) {
     const card = deck[i % deck.length];
     const cards = fillCards(card);
@@ -134,7 +134,10 @@ const handler: Handler = async (event: HandlerEvent) => {
     i++;
   }
 
+  console.log(finalDeck);
+
   const shuffledUsers = shuffle(users);
+  console.log(shuffledUsers);
 
   const assignments = finalDeck.map((card, idx) => ({
     user_id: shuffledUsers[idx].id,

@@ -4,7 +4,7 @@ import RoleCard from './RoleCard';
 import SignUpForm from './SignUpForm';
 
 const main = async () => {
-  const userHash = window.localStorage.getItem('werewolf:user');
+  const userHash = window.localStorage.getItem('werewolf:user:october-2023');
 
   const role = await fetch('/.netlify/functions/role', {
     headers: {
@@ -13,7 +13,7 @@ const main = async () => {
   }).then((d) => d.json());
 
   if (role.role === null) {
-    window.localStorage.removeItem('werewolf:role');
+    window.localStorage.removeItem('werewolf:role:october-2023');
     const existingCard = document.querySelector('role-card');
     if (existingCard) {
       existingCard.remove();
@@ -21,13 +21,13 @@ const main = async () => {
     window.location.reload();
   }
 
-  const currentRole = window.localStorage.getItem('werewolf:role');
+  const currentRole = window.localStorage.getItem('werewolf:role:october-2023');
 
   if (
     (role.role !== null && !currentRole && role.role) ||
     (role.role !== null && role.role !== parseInt(currentRole, 10))
   ) {
-    window.localStorage.setItem('werewolf:role', role.role);
+    window.localStorage.setItem('werewolf:role:october-2023', role.role);
     const existingCard = document.querySelector('role-card');
     if (existingCard) {
       existingCard.remove();
@@ -49,7 +49,7 @@ const main = async () => {
     customElements.define('sign-up-form', SignUpForm);
   }
 
-  const userHash = window.localStorage.getItem('werewolf:user');
+  const userHash = window.localStorage.getItem('werewolf:user:october-2023');
 
   if (!userHash) {
     setTimeout(() => {
@@ -61,7 +61,7 @@ const main = async () => {
     const emptyDiv = document.createElement('div');
     document.querySelector('#wrapper').appendChild(emptyDiv);
 
-    const currentRole = window.localStorage.getItem('werewolf:role');
+    const currentRole = window.localStorage.getItem('werewolf:role:october-2023');
     if (currentRole) {
       const roleCard = document.createElement('role-card');
       roleCard.setAttribute('id', currentRole);

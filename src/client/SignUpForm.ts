@@ -152,7 +152,7 @@ class SignUpForm extends HTMLElement {
         body: JSON.stringify({ name, email }),
       }).then((d) => d.json());
       if (res && res.token) {
-        window.localStorage.setItem('werewolf:user', res.token);
+        window.localStorage.setItem('werewolf:user:october-2023', res.token);
         window.location.reload();
       }
     });

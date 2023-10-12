@@ -115,7 +115,7 @@ const handler: Handler = async (event: HandlerEvent) => {
       continue;
     }
 
-    if (card.id === VAMPIRE && totalCardInDeck(finalDeck, card.id) >= 5) {
+    if (card.id === VAMPIRE && totalCardInDeck(finalDeck, card.id) >= 3) {
       i++;
       continue;
     }

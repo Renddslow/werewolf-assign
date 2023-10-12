@@ -151,7 +151,7 @@
     "informationGiven": "nightly",
     "imageSrc": "/cards/08_arcanist.png",
     "rules": [
-      "At the start of the game, you will be told in Slack one clue about the player identity of the [[Anointed]]."
+      "At the start of the game, you will be told in Slack one clue about the player identity of the [[Anointed]].",
       "Each night, you will be asked to choose a player in Slack and send it to the storyteller team.",
       "You will not get to pick a player on the first night.",
       "You will receive a \"yes\" or \"no\" answer about whether that player is cursed.",

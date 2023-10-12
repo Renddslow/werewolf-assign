@@ -159,6 +159,7 @@ td ul {
     grid-gap: 8px;
     height: 90vh;
     overflow: auto;
+    align-items: start;
 }
 
 .log h2 {
